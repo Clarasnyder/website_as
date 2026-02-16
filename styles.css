@@ -1,0 +1,107 @@
+
+.container {
+	display: flex;
+	width: 100vw;
+	height: 100vh;
+	flex-direction: column;
+	background-color: white;
+	gap: 20px;
+}
+.topbox {
+	display: flex;
+	flex-direction: row;
+	width: 100vw;
+	height: 200px;
+	justify-content: flex-end;
+	font-size: 32px;
+}
+
+.topbox img {
+	width: 30%;
+
+
+}
+
+
+.middlebox {
+	display: flex;
+	flex-direction: row;
+	width: 100vw;
+	height: 200px;
+	justify-content: flex-start;
+
+}
+
+.middlebox img {
+	width: 30%;
+}
+
+.middlebox2 {
+	display: flex;
+	flex-direction: row;
+	width: 100vw;
+	height: 200px;
+	justify-content: flex-end;
+	position: relative;
+
+}
+
+.overlay-text {
+	position: absolute;
+	top: 50%;
+	left: 76%;
+	transform: translate(-50%, -50%);
+	color: white;
+	text-align: center;
+	justify-content: flex-end;
+	font-size: 24px;
+	font-family: 'model', sans-serif;
+	animation: fontSwitch 3s infinite;
+
+}
+
+@font-face {
+	font-family: 'model';
+	src: url(fonts/model_otf/PPModelPlastic-medium.otf);
+	font-weight: normal;
+	font-style: normal;
+
+}
+
+@font-face {
+	font-family: 'playground';
+	src: url(fonts/playground_otf/otf/PPPlayground-medium.otf);
+	font-weight: normal;
+	font-style: normal;
+
+}
+
+@font-face {
+	font-family: 'talisman';
+	src: url(fonts/talisman_otf/OTF/PPtalisman-bold.otf);
+	font-weight: normal;
+	font-style: normal;
+
+}
+
+@keyframes fontSwitch {
+	0% { font-family: 'model'}
+	33% { font-family: 'playground' }
+	66% { font-family: 'talisman'}
+	100% {font-family: 'model'}
+	
+}
+.middlebox2 img {
+	width: 45%;
+}
+
+
+.bottombox {
+	display:flex;
+	flex-direction: column;
+	width: 100vw;
+	height: auto;
+	
+
+}
+
