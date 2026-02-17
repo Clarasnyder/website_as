@@ -62,7 +62,7 @@
 
 @font-face {
 	font-family: 'model';
-	src: url(fonts/model_otf/PPModelPlastic-medium.otf);
+	src: url(fonts/model_otf/PPModelPlastic-Medium.otf);
 	font-weight: normal;
 	font-style: normal;
 
@@ -70,7 +70,7 @@
 
 @font-face {
 	font-family: 'playground';
-	src: url(fonts/playground_otf/otf/PPPlayground-medium.otf);
+	src: url(fonts/playground_otf/otf/PPPlayground-Medium.otf);
 	font-weight: normal;
 	font-style: normal;
 
@@ -78,7 +78,7 @@
 
 @font-face {
 	font-family: 'talisman';
-	src: url(fonts/talisman_otf/OTF/PPtalisman-bold.otf);
+	src: url(fonts/talisman_otf/OTF/PPtalisman-Bold.otf);
 	font-weight: normal;
 	font-style: normal;
 
