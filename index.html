@@ -27,4 +27,56 @@
               
           </div>
       </div>
+      <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const runId = 'run1';
+
+        function sendFontDebugLog(hypothesisId, message, data) {
+          // #region agent log
+          fetch('http://127.0.0.1:7242/ingest/99f08b1a-019f-4643-8e75-4c02578e823f', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              id: 'font_debug_' + Date.now() + '_' + Math.random().toString(16).slice(2),
+              timestamp: Date.now(),
+              location: 'index.html:font_debug',
+              message,
+              data,
+              runId,
+              hypothesisId
+            })
+          }).catch(() => {});
+          // #endregion agent log
+        }
+
+        // Hypothesis H1: font files or paths are wrong on GitHub Pages
+        const fontUrls = [
+          'fonts/model_otf/PPModelPlastic-Medium.otf',
+          'fonts/playground_otf/otf/PPPlayground-Medium.otf',
+          'fonts/talisman_otf/OTF/PPtalisman-Bold.otf'
+        ];
+
+        fontUrls.forEach((url) => {
+          fetch(url, { method: 'HEAD' })
+            .then((resp) => {
+              sendFontDebugLog('H1', 'font-url-response', { url, status: resp.status });
+            })
+            .catch((error) => {
+              sendFontDebugLog('H1', 'font-url-error', { url, error: String(error) });
+            });
+        });
+
+        // Hypothesis H2: fonts are not considered "loaded" by the browser on the page
+        const fontFamilies = ['model', 'playground', 'talisman'];
+        fontFamilies.forEach((family) => {
+          let loaded = false;
+          try {
+            loaded = !!(document.fonts && document.fonts.check('1rem ' + family));
+          } catch (e) {
+            loaded = false;
+          }
+          sendFontDebugLog('H2', 'font-family-check', { family, loaded });
+        });
+      });
+      </script>
     </body>
